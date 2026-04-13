@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Button Experiment | The Consciousness Project</title>
+  <meta name="description" content="An interactive experiment in free will — press left or right and see if your choice was truly free.">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .experiment-area {
+      text-align: center;
+      padding: 2rem 0;
+    }
+    .experiment-box {
+      background: var(--card-bg);
+      border-radius: 12px;
+      padding: 2.5rem;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.1);
+      margin: 2rem 0;
+      border: 2px solid var(--blue-pale);
+    }
+    .btn-row {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      margin: 2rem 0;
+    }
+    .choice-btn {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      font-size: 1.2rem;
+      font-weight: 600;
+      padding: 1.25rem 3rem;
+      border: 2px solid var(--blue);
+      border-radius: 8px;
+      background: var(--blue-pale);
+      color: var(--blue);
+      cursor: pointer;
+      transition: all 0.2s;
+      min-width: 140px;
+    }
+    .choice-btn:hover {
+      background: var(--blue);
+      color: #fff;
+    }
+    .choice-btn:active {
+      transform: scale(0.96);
+    }
+    .choice-btn.selected {
+      background: var(--blue);
+      color: #fff;
+      border-color: var(--blue);
+    }
+    .result-area {
+      display: none;
+      margin-top: 2rem;
+    }
+    .result-area.visible {
+      display: block;
+    }
+    .round-counter {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      font-size: 0.9rem;
+      color: var(--text-light);
+      margin-bottom: 1rem;
+    }
+    .prediction-display {
+      font-size: 1.3rem;
+      margin: 1rem 0;
+      padding: 1rem;
+      background: #fdf2f2;
+      border-radius: 8px;
+      border-left: 4px solid var(--accent);
+    }
+    .prediction-display.correct {
+      background: #eafaf1;
+      border-left-color: var(--green);
+    }
+    .stats-bar {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      margin: 1.5rem 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    }
+    .stats-bar .stat {
+      text-align: center;
+    }
+    .stats-bar .stat .val {
+      font-size: 1.8rem;
+      font-weight: bold;
+      color: var(--blue);
+    }
+    .stats-bar .stat .lbl {
+      font-size: 0.8rem;
+      color: var(--text-light);
+    }
+    .next-btn {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      font-size: 1rem;
+      padding: 0.75rem 2rem;
+      border: none;
+      border-radius: 6px;
+      background: var(--blue-light);
+      color: #fff;
+      cursor: pointer;
+      margin-top: 1rem;
+    }
+    .next-btn:hover {
+      background: var(--blue);
+    }
+    .reset-btn {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      font-size: 0.85rem;
+      padding: 0.5rem 1.5rem;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      background: transparent;
+      color: var(--text-light);
+      cursor: pointer;
+      margin-top: 0.5rem;
+    }
+    .insight-cards {
+      display: none;
+    }
+    .insight-cards.visible {
+      display: block;
+    }
+    #prompt-text {
+      font-size: 1.3rem;
+      color: var(--blue);
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="nav-inner">
+      <a href="index.html" class="site-title">The Consciousness Project</a>
+      <a href="index.html">Home</a>
+      <a href="hard-problem.html">The Hard Problem</a>
+      <a href="theories.html">Theories</a>
+      <a href="free-will.html">Free Will</a>
+      <a href="altered-states.html">Altered States</a>
+      <a href="cosmos.html">Cosmos</a>
+      <a href="split-brain.html">Split Brain</a>
+      <a href="boundaries.html">Boundaries</a>
+      <a href="illusions.html">Illusions</a>
+      <a href="machine-minds.html">Machine Minds</a>
+      <a href="sources.html">Sources</a>
+    </div>
+  </nav>
+
+  <div class="container">
+    <h1>The Button Experiment</h1>
+
+    <p>In 2008, researchers at the Max Planck Institute showed that brain activity can predict a person's "free" choice of left or right <strong>up to 10 seconds</strong> before they are aware of deciding. They achieved roughly <strong>60% accuracy</strong> &mdash; significantly above the 50% chance baseline.</p>
+
+    <p>This experiment lets you experience something similar. Press Left or Right &mdash; freely, spontaneously, without thinking. A simple algorithm will try to predict your choice based on your own behavioral patterns.</p>
+
+    <div class="experiment-box" id="experiment">
+      <div class="round-counter" id="round-counter">Round 1 of 20</div>
+      <p id="prompt-text">Choose a side. Don't think &mdash; just pick.</p>
+
+      <div class="btn-row" id="btn-row">
+        <button class="choice-btn" id="btn-left" onclick="makeChoice('left')">LEFT</button>
+        <button class="choice-btn" id="btn-right" onclick="makeChoice('right')">RIGHT</button>
+      </div>
+
+      <div class="result-area" id="result-area">
+        <div class="prediction-display" id="prediction-display"></div>
+
+        <div class="stats-bar">
+          <div class="stat">
+            <div class="val" id="stat-rounds">0</div>
+            <div class="lbl">rounds</div>
+          </div>
+          <div class="stat">
+            <div class="val" id="stat-correct">0</div>
+            <div class="lbl">correct predictions</div>
+          </div>
+          <div class="stat">
+            <div class="val" id="stat-pct">0%</div>
+            <div class="lbl">accuracy</div>
+          </div>
+        </div>
+
+        <button class="next-btn" id="next-btn" onclick="nextRound()">Next Round</button>
+        <br>
+        <button class="reset-btn" onclick="resetExperiment()">Start Over</button>
+      </div>
+    </div>
+
+    <div class="insight-cards" id="insights">
+      <h2>What Just Happened</h2>
+
+      <div class="card">
+        <h3>The Algorithm</h3>
+        <p>The prediction model is simple. It tracks three patterns in your choices:</p>
+        <ol>
+          <li><strong>Frequency bias</strong>: most people slightly favor one side. If you've pressed left 60% of the time, the algorithm gives weight to left.</li>
+          <li><strong>Alternation bias</strong>: humans trying to be "random" tend to alternate more than true randomness would. If you just pressed left, the algorithm gives weight to right.</li>
+          <li><strong>Sequence patterns</strong>: after sequences like L-L or R-L, you may develop habitual responses. The algorithm tracks these transitions.</li>
+        </ol>
+        <p>This is not reading your brain. It's reading your <em>behavioral fingerprint</em> &mdash; the patterns embedded in your choices that you can't see from the inside.</p>
+      </div>
+
+      <div class="card highlight">
+        <h3>Why This Matters</h3>
+        <p>If a trivial algorithm running in a web browser can predict your "free" choices above chance, imagine what a system with access to your <strong>neural activity</strong> could do &mdash; which is exactly what Soon et al. demonstrated in 2008.</p>
+        <p>The feeling of freedom is not evidence of freedom. Every choice you made felt spontaneous. You could have chosen differently &mdash; or so it seemed. But your choices followed statistical patterns that were visible to a simple model and invisible to you.</p>
+        <p>This doesn't prove you lack free will. A compatibilist would say that acting on your own patterns <em>is</em> free will. But it demonstrates something important: <strong>the sense of choosing freely and the reality of choosing predictably are not mutually exclusive.</strong></p>
+      </div>
+
+      <div class="card">
+        <h3>The Real Experiment</h3>
+        <p>In Soon et al. (2008), the prediction wasn't based on behavioral patterns &mdash; it was based on <strong>fMRI brain scans</strong>. Activity in the frontopolar cortex and precuneus encoded the upcoming decision up to 10 seconds before participants reported awareness of choosing. The brain had already "decided" left or right while the conscious mind was still deliberating.</p>
+        <p>Read more about this research on the <a href="free-will.html">Free Will &amp; Determinism</a> page.</p>
+      </div>
+    </div>
+
+    <div class="page-nav">
+      <a href="free-will.html">&larr; Free Will</a>
+      <a href="cosmos.html">Cosmos &rarr;</a>
+    </div>
+  </div>
+
+  <footer>
+    <div class="license-box">
+      <strong>Public Domain:</strong> Dedicated to the public domain under <a href="https://creativecommons.org/publicdomain/zero/1.0/" target="_blank" rel="noopener">CC0 1.0</a>.
+    </div>
+    <p>Created by Philip S. Wright | <a href="https://github.com/pdubbbbbs/jim-twins-project">View on GitHub</a></p>
+  </footer>
+
+  <script>
+    const totalRounds = 20;
+    let round = 0;
+    let choices = [];
+    let predictions = [];
+    let correctCount = 0;
+
+    // Transition table: tracks what follows each 2-choice sequence
+    let transitions = {
+      'LL': { left: 0, right: 0 },
+      'LR': { left: 0, right: 0 },
+      'RL': { left: 0, right: 0 },
+      'RR': { left: 0, right: 0 }
+    };
+
+    function predict() {
+      if (choices.length < 2) {
+        // Not enough data — guess based on frequency or coin flip
+        if (choices.length === 0) return Math.random() < 0.5 ? 'left' : 'right';
+        // After 1 choice, predict alternation (humans tend to alternate)
+        return choices[0] === 'left' ? 'right' : 'left';
+      }
+
+      const last2 = (choices[choices.length - 2] === 'left' ? 'L' : 'R') +
+                     (choices[choices.length - 1] === 'left' ? 'L' : 'R');
+
+      const t = transitions[last2];
+      const total = t.left + t.right;
+
+      // Frequency bias
+      const leftCount = choices.filter(c => c === 'left').length;
+      const freqLeft = leftCount / choices.length;
+
+      // Alternation bias
+      let altCount = 0;
+      for (let i = 1; i < choices.length; i++) {
+        if (choices[i] !== choices[i - 1]) altCount++;
+      }
+      const altRate = altCount / (choices.length - 1);
+
+      // Sequence-based prediction
+      let seqScore = 0.5; // neutral
+      if (total > 0) {
+        seqScore = t.left / total; // probability of left given last 2
+      }
+
+      // Weighted combination
+      const w1 = 0.3; // frequency
+      const w2 = 0.25; // alternation
+      const w3 = 0.45; // sequence
+      const altPred = choices[choices.length - 1] === 'left' ? (1 - altRate) : altRate;
+      const combined = w1 * freqLeft + w2 * (altRate > 0.5 ? (choices[choices.length - 1] === 'left' ? 0.3 : 0.7) : (choices[choices.length - 1] === 'left' ? 0.7 : 0.3)) + w3 * seqScore;
+
+      return combined >= 0.5 ? 'left' : 'right';
+    }
+
+    function makeChoice(choice) {
+      const prediction = predict();
+      predictions.push(prediction);
+      const correct = prediction === choice;
+      if (correct) correctCount++;
+
+      // Update transitions from previous choices
+      if (choices.length >= 2) {
+        const prev2 = (choices[choices.length - 2] === 'left' ? 'L' : 'R') +
+                       (choices[choices.length - 1] === 'left' ? 'L' : 'R');
+        transitions[prev2][choice]++;
+      }
+
+      choices.push(choice);
+      round++;
+
+      // UI updates
+      document.getElementById('btn-left').classList.toggle('selected', choice === 'left');
+      document.getElementById('btn-right').classList.toggle('selected', choice === 'right');
+      document.getElementById('btn-left').disabled = true;
+      document.getElementById('btn-right').disabled = true;
+
+      const display = document.getElementById('prediction-display');
+      if (correct) {
+        display.className = 'prediction-display correct';
+        display.innerHTML = '<strong>Predicted: ' + prediction.toUpperCase() + '</strong> — Correct.';
+      } else {
+        display.className = 'prediction-display';
+        display.innerHTML = '<strong>Predicted: ' + prediction.toUpperCase() + '</strong> — Wrong this time.';
+      }
+
+      document.getElementById('stat-rounds').textContent = round;
+      document.getElementById('stat-correct').textContent = correctCount;
+      document.getElementById('stat-pct').textContent = Math.round((correctCount / round) * 100) + '%';
+
+      document.getElementById('result-area').classList.add('visible');
+
+      if (round >= totalRounds) {
+        document.getElementById('next-btn').textContent = 'See Results';
+      }
+    }
+
+    function nextRound() {
+      if (round >= totalRounds) {
+        showInsights();
+        return;
+      }
+
+      document.getElementById('btn-left').classList.remove('selected');
+      document.getElementById('btn-right').classList.remove('selected');
+      document.getElementById('btn-left').disabled = false;
+      document.getElementById('btn-right').disabled = false;
+      document.getElementById('result-area').classList.remove('visible');
+      document.getElementById('round-counter').textContent = 'Round ' + (round + 1) + ' of ' + totalRounds;
+
+      const prompts = [
+        "Choose a side. Don't think — just pick.",
+        "Left or right. Go with your gut.",
+        "Pick one. Quickly.",
+        "Which side? Don't deliberate.",
+        "Choose. Now.",
+        "Left or right — whatever feels right.",
+        "One more. Just pick.",
+        "Don't try to be random. Just choose.",
+        "Go.",
+        "Which one calls to you?"
+      ];
+      document.getElementById('prompt-text').textContent = prompts[round % prompts.length];
+    }
+
+    function showInsights() {
+      document.getElementById('experiment').style.display = 'none';
+      document.getElementById('insights').classList.add('visible');
+
+      const pct = Math.round((correctCount / round) * 100);
+      const insightHeader = document.querySelector('#insights h2');
+
+      if (pct >= 65) {
+        insightHeader.textContent = 'Result: ' + pct + '% — Your choices were highly predictable.';
+      } else if (pct >= 55) {
+        insightHeader.textContent = 'Result: ' + pct + '% — Above chance. A pattern was found.';
+      } else {
+        insightHeader.textContent = 'Result: ' + pct + '% — Close to chance. You were hard to read.';
+      }
+    }
+
+    function resetExperiment() {
+      round = 0;
+      choices = [];
+      predictions = [];
+      correctCount = 0;
+      transitions = {
+        'LL': { left: 0, right: 0 },
+        'LR': { left: 0, right: 0 },
+        'RL': { left: 0, right: 0 },
+        'RR': { left: 0, right: 0 }
+      };
+      document.getElementById('experiment').style.display = 'block';
+      document.getElementById('insights').classList.remove('visible');
+      document.getElementById('btn-left').classList.remove('selected');
+      document.getElementById('btn-right').classList.remove('selected');
+      document.getElementById('btn-left').disabled = false;
+      document.getElementById('btn-right').disabled = false;
+      document.getElementById('result-area').classList.remove('visible');
+      document.getElementById('round-counter').textContent = 'Round 1 of ' + totalRounds;
+      document.getElementById('prompt-text').textContent = "Choose a side. Don't think — just pick.";
+      document.getElementById('next-btn').textContent = 'Next Round';
+    }
+  </script>
+</body>
+</html>

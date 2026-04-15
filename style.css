@@ -307,22 +307,72 @@ nav a.active::after {
   100% { transform: translate(-4%, 4%) scale(1.1) rotate(1.5deg); }
 }
 
-/* Author name above title */
+/* === AUTHOR NAME — the lead of this project === */
 .hero .author-name {
   font-family: 'Space Grotesk', sans-serif;
-  font-size: 0.8rem;
+  font-size: 1.6rem;
   font-weight: 600;
-  letter-spacing: 3px;
+  letter-spacing: 8px;
   text-transform: uppercase;
-  color: var(--blue-bright);
-  margin-bottom: 1.5rem;
+  line-height: 1;
+  color: #fff;
+  margin: 0 0 0.75rem;
   position: relative;
   z-index: 3;
   text-shadow:
-    0 0 12px rgba(59, 130, 246, 0.6),
-    0 0 24px rgba(59, 130, 246, 0.3);
-  animation: fadeSlideUp 0.8s ease-out both;
+    0 0 10px #3b82f6cc,
+    0 0 20px #3b82f688,
+    0 0 35px #3b82f644,
+    0 3px 10px rgba(0, 0, 0, 0.4);
+  -webkit-text-stroke: 0.4px rgba(59, 130, 246, 0.35);
+  filter: drop-shadow(0 0 12px rgba(59, 130, 246, 0.35));
+  animation: fadeSlideUp 0.85s ease-out both;
+  border-bottom: none;
+  padding-bottom: 0;
 }
+
+.hero .author-name::after { display: none; }
+
+/* "presents" connector */
+.hero .presents {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 300;
+  font-style: italic;
+  letter-spacing: 5px;
+  text-transform: lowercase;
+  color: rgba(148, 163, 184, 0.5);
+  margin: 0 0 1.75rem;
+  position: relative;
+  z-index: 3;
+  animation: fadeSlideUp 0.85s ease-out 0.06s both;
+}
+
+/* Project title */
+.hero .project-title {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 3.4rem;
+  font-weight: 700;
+  letter-spacing: -2px;
+  line-height: 1.1;
+  color: #fff;
+  margin: 0 0 1.25rem;
+  position: relative;
+  z-index: 3;
+  text-shadow:
+    0 0 10px #3b82f6cc,
+    0 0 25px #3b82f699,
+    0 0 50px #3b82f655,
+    0 0 80px #3b82f633,
+    0 4px 12px rgba(0, 0, 0, 0.5);
+  -webkit-text-stroke: 0.5px rgba(59, 130, 246, 0.4);
+  filter: drop-shadow(0 0 20px rgba(59, 130, 246, 0.4));
+  border-bottom: none;
+  padding-bottom: 0;
+  animation: fadeSlideUp 0.9s ease-out 0.12s both;
+}
+
+.hero .project-title::after { display: none; }
 
 /* Badge */
 .hero .badge {
@@ -1020,6 +1070,8 @@ footer a { color: var(--blue-bright); }
    RESPONSIVE
    ============================================ */
 @media (max-width: 768px) {
+  .hero .author-name { font-size: 1.1rem; letter-spacing: 5px; }
+  .hero .project-title { font-size: 2rem; letter-spacing: -1px; }
   .hero h1 { font-size: 2.2rem; letter-spacing: -1px; }
   .hero .subtitle { font-size: 1.05rem; }
   .hero { padding: 5rem 1.25rem 4rem; }

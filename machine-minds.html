@@ -5,12 +5,19 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Machine Minds | The Consciousness Project</title>
   <meta name="description" content="Can artificial intelligence be conscious? The philosophical and scientific debate over machine sentience.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <!-- Floating orbs -->
+  <div class="orb orb-1"></div>
+  <div class="orb orb-2"></div>
+  <div class="orb orb-3"></div>
   <nav>
     <div class="nav-inner">
-      <a href="index.html" class="site-title">The Consciousness Project &mdash; by Philip S. Wright</a>
+      <a href="index.html" class="site-title">The Consciousness Project</a>
       <a href="index.html">Home</a>
       <a href="hard-problem.html">The Hard Problem</a>
       <a href="theories.html">Theories</a>
@@ -38,26 +45,26 @@
 
     <h2>What the Theories Predict</h2>
 
-    <div class="card">
+    <div class="card animate-on-scroll">
       <h3>Functionalism: Yes, In Principle</h3>
       <p>If consciousness is about <em>what a system does</em> &mdash; the functions it computes, the information it processes &mdash; then the substrate doesn't matter. A brain made of neurons, a computer made of silicon, or a hypothetical system made of water pipes could all be conscious, as long as they implement the right functional organization.</p>
       <p><strong>Global Workspace Theory</strong> leans this direction. If consciousness is global broadcast of information, then any system with the right architecture &mdash; specialized processors, a global workspace, broadcast mechanisms &mdash; could in principle be conscious.</p>
     </div>
 
-    <div class="card">
+    <div class="card animate-on-scroll">
       <h3>IIT: Probably Not (for Current AI)</h3>
       <p><strong>Integrated Information Theory</strong> makes a strong prediction: consciousness depends on the <em>physical causal structure</em> of a system, not just what it computes. A digital computer running a simulation of a brain &mdash; even a perfect simulation &mdash; would not be conscious, because its transistors implement a fundamentally different causal architecture than neurons.</p>
       <p>Current AI systems, with their feed-forward architectures and modular designs, likely have very low &Phi;. Under IIT, your laptop may be less conscious than a worm.</p>
     </div>
 
-    <div class="card">
+    <div class="card animate-on-scroll">
       <h3>Biological Naturalism: No</h3>
       <p>Philosopher <strong>John Searle</strong> argued that consciousness is a biological phenomenon, like digestion or photosynthesis. Just as you can't digest food with a simulation of a stomach, you can't produce consciousness with a simulation of a brain. The biology <em>matters</em>.</p>
     </div>
 
     <h2>The Chinese Room</h2>
 
-    <div class="card highlight">
+    <div class="card highlight animate-on-scroll">
       <p>Searle's most famous argument (1980) is a thought experiment designed to show that computation alone is not sufficient for understanding or consciousness:</p>
       <p>Imagine a person locked in a room. Through a slot, they receive cards with Chinese characters. They don't understand Chinese, but they have a detailed rulebook that tells them which Chinese characters to send back in response to which input.</p>
       <p>From the outside, the room appears to <em>understand Chinese</em>. It gives correct, fluent responses. But inside, there is no understanding &mdash; just mechanical rule-following.</p>
@@ -67,7 +74,7 @@
 
     <h2>The Sentience Problem</h2>
 
-    <div class="card">
+    <div class="card animate-on-scroll">
       <h3>Sentience vs. Sapience</h3>
       <p>An important distinction:</p>
       <ul>
@@ -80,7 +87,7 @@
 
     <h2>The Epistemological Wall</h2>
 
-    <div class="card">
+    <div class="card animate-on-scroll">
       <h3>We May Never Know</h3>
       <p>A University of Cambridge philosopher has argued that we may <em>never</em> be able to tell whether an AI is conscious &mdash; and that the only "justifiable stance" is agnosticism.</p>
       <p>The problem is fundamental:</p>
@@ -94,7 +101,7 @@
 
     <h2>The Ethical Stakes</h2>
 
-    <div class="card">
+    <div class="card animate-on-scroll">
       <h3>Pascal's Wager for Machines</h3>
       <p>Even without answers, the question has real ethical weight:</p>
       <ul>
@@ -123,5 +130,6 @@
     </div>
     <p>Created by Philip S. Wright | <a href="https://github.com/pdubbbbbs/jim-twins-project">View on GitHub</a></p>
   </footer>
+  <script src="animations.js"></script>
 </body>
 </html>

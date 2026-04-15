@@ -5,6 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>The Button Experiment | The Consciousness Project</title>
   <meta name="description" content="An interactive experiment in free will — press left or right and see if your choice was truly free.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
   <style>
     .experiment-area {
@@ -134,9 +137,13 @@
   </style>
 </head>
 <body>
+  <!-- Floating orbs -->
+  <div class="orb orb-1"></div>
+  <div class="orb orb-2"></div>
+  <div class="orb orb-3"></div>
   <nav>
     <div class="nav-inner">
-      <a href="index.html" class="site-title">The Consciousness Project &mdash; by Philip S. Wright</a>
+      <a href="index.html" class="site-title">The Consciousness Project</a>
       <a href="index.html">Home</a>
       <a href="hard-problem.html">The Hard Problem</a>
       <a href="theories.html">Theories</a>
@@ -194,7 +201,7 @@
     <div class="insight-cards" id="insights">
       <h2>What Just Happened</h2>
 
-      <div class="card">
+      <div class="card animate-on-scroll">
         <h3>The Algorithm</h3>
         <p>The prediction model is simple. It tracks three patterns in your choices:</p>
         <ol>
@@ -205,14 +212,14 @@
         <p>This is not reading your brain. It's reading your <em>behavioral fingerprint</em> &mdash; the patterns embedded in your choices that you can't see from the inside.</p>
       </div>
 
-      <div class="card highlight">
+      <div class="card highlight animate-on-scroll">
         <h3>Why This Matters</h3>
         <p>If a trivial algorithm running in a web browser can predict your "free" choices above chance, imagine what a system with access to your <strong>neural activity</strong> could do &mdash; which is exactly what Soon et al. demonstrated in 2008.</p>
         <p>The feeling of freedom is not evidence of freedom. Every choice you made felt spontaneous. You could have chosen differently &mdash; or so it seemed. But your choices followed statistical patterns that were visible to a simple model and invisible to you.</p>
         <p>This doesn't prove you lack free will. A compatibilist would say that acting on your own patterns <em>is</em> free will. But it demonstrates something important: <strong>the sense of choosing freely and the reality of choosing predictably are not mutually exclusive.</strong></p>
       </div>
 
-      <div class="card">
+      <div class="card animate-on-scroll">
         <h3>The Real Experiment</h3>
         <p>In Soon et al. (2008), the prediction wasn't based on behavioral patterns &mdash; it was based on <strong>fMRI brain scans</strong>. Activity in the frontopolar cortex and precuneus encoded the upcoming decision up to 10 seconds before participants reported awareness of choosing. The brain had already "decided" left or right while the conscious mind was still deliberating.</p>
         <p>Read more about this research on the <a href="free-will.html">Free Will &amp; Determinism</a> page.</p>
@@ -397,5 +404,6 @@
       document.getElementById('next-btn').textContent = 'Next Round';
     }
   </script>
+  <script src="animations.js"></script>
 </body>
 </html>

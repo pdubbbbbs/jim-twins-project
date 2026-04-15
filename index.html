@@ -5,12 +5,20 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>The Consciousness Project</title>
   <meta name="description" content="An exploration of consciousness — the hard problem, theories of mind, free will, altered states, and machine sentience.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <!-- Floating orbs -->
+  <div class="orb orb-1"></div>
+  <div class="orb orb-2"></div>
+  <div class="orb orb-3"></div>
+
   <nav>
     <div class="nav-inner">
-      <a href="index.html" class="site-title">The Consciousness Project &mdash; by Philip S. Wright</a>
+      <a href="index.html" class="site-title">The Consciousness Project</a>
       <a href="index.html" class="active">Home</a>
       <a href="hard-problem.html">The Hard Problem</a>
       <a href="theories.html">Theories</a>
@@ -26,97 +34,128 @@
   </nav>
 
   <div class="hero">
-    <p style="font-size:0.85rem; letter-spacing:2px; text-transform:uppercase; color:var(--blue); margin-bottom:0.5rem; position:relative; z-index:1;">A project by Philip S. Wright</p>
+    <div class="badge">Exploring the nature of awareness</div>
     <h1>The Consciousness Project</h1>
     <p class="subtitle">What is it like to be you? And why is it like anything at all?</p>
+    <div class="hero-cta">
+      <a href="hard-problem.html">Begin the journey &rarr;</a>
+    </div>
   </div>
 
   <div class="container">
 
-    <p>You are reading these words. Light enters your eyes, triggers electrical signals, and somewhere in three pounds of biological tissue, <em>experience</em> happens. You don't just process information &mdash; you <em>feel</em> what it's like to process it. The redness of red. The sting of pain. The weight of a decision.</p>
+    <p class="animate-on-scroll">You are reading these words. Light enters your eyes, triggers electrical signals, and somewhere in three pounds of biological tissue, <em>experience</em> happens. You don't just process information &mdash; you <em>feel</em> what it's like to process it. The redness of red. The sting of pain. The weight of a decision.</p>
 
-    <p>This is consciousness &mdash; the most familiar thing in the universe to each of us, and the least understood thing in all of science.</p>
+    <p class="animate-on-scroll">This is consciousness &mdash; the most familiar thing in the universe to each of us, and the least understood thing in all of science.</p>
 
-    <h2>The Central Mystery</h2>
+    <h2 class="animate-on-scroll">The Central Mystery</h2>
 
-    <p>We can map the brain down to individual neurons. We can watch it light up in an fMRI scanner. We can model its computations. But none of this explains <em>why</em> there is something it is like to be a brain. Why aren't we just biological robots, processing inputs and producing outputs in the dark?</p>
+    <p class="animate-on-scroll">We can map the brain down to individual neurons. We can watch it light up in an fMRI scanner. We can model its computations. But none of this explains <em>why</em> there is something it is like to be a brain. Why aren't we just biological robots, processing inputs and producing outputs in the dark?</p>
 
-    <blockquote>
+    <blockquote class="animate-on-scroll">
       "It is not that we know what consciousness is and are trying to figure out how the brain produces it. We do not yet even have a good theory of what consciousness <em>is</em>."
       <cite>&mdash; David Chalmers</cite>
     </blockquote>
 
-    <p>This project explores consciousness from multiple angles: the philosophical puzzle, the scientific theories, the evidence against free will, the ways consciousness can be altered, and the question of whether machines might one day be conscious too.</p>
+    <p class="animate-on-scroll">This project explores consciousness from multiple angles: the philosophical puzzle, the scientific theories, the evidence against free will, the ways consciousness can be altered, and the question of whether machines might one day be conscious too.</p>
 
-    <h2>Explore</h2>
+    <div class="section-divider"></div>
 
-    <div class="card">
-      <h3><a href="hard-problem.html">The Hard Problem</a></h3>
-      <p>Why does subjective experience exist? What is the "explanatory gap" between brain activity and felt experience? The question that has stumped philosophers and scientists alike.</p>
+    <h2 class="animate-on-scroll">Explore</h2>
+
+    <div class="card-grid">
+      <div class="card animate-on-scroll stagger-1" data-topic="hard-problem">
+        <span class="tag philosophy">Philosophy</span>
+        <span class="card-icon">&#129504;</span>
+        <h3><a href="hard-problem.html">The Hard Problem</a></h3>
+        <p>Why does subjective experience exist? What is the "explanatory gap" between brain activity and felt experience? The question that has stumped philosophers and scientists alike.</p>
+      </div>
+
+      <div class="card animate-on-scroll stagger-2" data-topic="theories">
+        <span class="tag science">Science</span>
+        <span class="card-icon">&#128300;</span>
+        <h3><a href="theories.html">Theories of Consciousness</a></h3>
+        <p>Integrated Information Theory, Global Workspace Theory, Higher-Order Theories &mdash; the leading attempts to explain what consciousness is and where it comes from.</p>
+      </div>
+
+      <div class="card animate-on-scroll stagger-3" data-topic="free-will">
+        <span class="tag neuroscience">Neuroscience</span>
+        <span class="card-icon">&#9878;&#65039;</span>
+        <h3><a href="free-will.html">Free Will &amp; Determinism</a></h3>
+        <p>Identical twins who lived parallel lives without knowing each other. Brains that "decide" 10 seconds before you're aware. The neuroscience and genetics that challenge the idea you author your choices.</p>
+      </div>
+
+      <div class="card animate-on-scroll stagger-4" data-topic="altered-states">
+        <span class="tag neuroscience">Neuroscience</span>
+        <span class="card-icon">&#127800;</span>
+        <h3><a href="altered-states.html">Altered States</a></h3>
+        <p>Psychedelics, meditation, sleep, anesthesia &mdash; states that change consciousness reveal what consciousness depends on. What the Default Mode Network tells us about the self.</p>
+      </div>
+
+      <div class="card animate-on-scroll stagger-5" data-topic="cosmos">
+        <span class="tag physics">Physics</span>
+        <span class="card-icon">&#127756;</span>
+        <h3><a href="cosmos.html">Cosmos &amp; Consciousness</a></h3>
+        <p>Entropy and the arrow of time. Jung's synchronicity. Fine-tuning and the anthropic principle. Why the universe appears built for minds.</p>
+      </div>
+
+      <div class="card animate-on-scroll stagger-6" data-topic="split-brain">
+        <span class="tag neuroscience">Neuroscience</span>
+        <span class="card-icon">&#129705;</span>
+        <h3><a href="split-brain.html">The Divided Mind</a></h3>
+        <p>Cut the brain in half and you may create two consciousnesses. Sperry and Gazzaniga's split-brain experiments, the confabulating left hemisphere, and what it means for the unity of self.</p>
+      </div>
+
+      <div class="card animate-on-scroll stagger-7" data-topic="boundaries">
+        <span class="tag science">Science</span>
+        <span class="card-icon">&#129416;</span>
+        <h3><a href="boundaries.html">Boundaries of Consciousness</a></h3>
+        <p>Octopus intelligence, corvid self-awareness, near-death experiences, and terminal lucidity. Where consciousness begins, ends, and surprises us.</p>
+      </div>
+
+      <div class="card animate-on-scroll stagger-8" data-topic="illusions">
+        <span class="tag psychology">Psychology</span>
+        <span class="card-icon">&#128065;</span>
+        <h3><a href="illusions.html">Illusions of Reality</a></h3>
+        <p>The invisible gorilla. The frequency illusion. The speed of light as a rendering limit. Simulation theory and the possibility that reality only computes what is observed.</p>
+      </div>
+
+      <div class="card animate-on-scroll stagger-9" data-topic="experiment">
+        <span class="tag interactive">Interactive</span>
+        <span class="card-icon">&#128377;&#65039;</span>
+        <h3><a href="experiment.html">The Button Experiment</a></h3>
+        <p>An interactive test: press Left or Right 20 times and watch a simple algorithm predict your "free" choices. Experience the Soon et al. finding firsthand.</p>
+      </div>
+
+      <div class="card animate-on-scroll stagger-10" data-topic="machine-minds">
+        <span class="tag technology">Technology</span>
+        <span class="card-icon">&#129302;</span>
+        <h3><a href="machine-minds.html">Machine Minds</a></h3>
+        <p>Can silicon be conscious? The Chinese Room, the hard problem of AI sentience, and why we may never be able to tell if a machine is truly aware.</p>
+      </div>
+
+      <div class="card animate-on-scroll stagger-11" data-topic="sources">
+        <span class="tag science">Reference</span>
+        <span class="card-icon">&#128218;</span>
+        <h3><a href="sources.html">Sources &amp; Further Reading</a></h3>
+        <p>Primary research papers, books, and the full bibliography behind this project.</p>
+      </div>
     </div>
 
-    <div class="card">
-      <h3><a href="theories.html">Theories of Consciousness</a></h3>
-      <p>Integrated Information Theory, Global Workspace Theory, Higher-Order Theories &mdash; the leading scientific and philosophical attempts to explain what consciousness is and where it comes from.</p>
-    </div>
-
-    <div class="card">
-      <h3><a href="free-will.html">Free Will &amp; Determinism</a></h3>
-      <p>Identical twins who lived parallel lives without knowing each other. Brains that "decide" 10 seconds before you're aware. The neuroscience and genetics that challenge the idea that you are the author of your choices.</p>
-    </div>
-
-    <div class="card">
-      <h3><a href="altered-states.html">Altered States</a></h3>
-      <p>Psychedelics, meditation, sleep, anesthesia &mdash; states that change consciousness reveal what consciousness depends on. What the Default Mode Network tells us about the self.</p>
-    </div>
-
-    <div class="card">
-      <h3><a href="cosmos.html">Cosmos &amp; Consciousness</a></h3>
-      <p>Entropy and the arrow of time. Jung's synchronicity. Fine-tuning and the anthropic principle. Why the universe appears built for minds.</p>
-    </div>
-
-    <div class="card">
-      <h3><a href="split-brain.html">The Divided Mind</a></h3>
-      <p>Cut the brain in half and you may create two consciousnesses. Sperry and Gazzaniga's split-brain experiments, the confabulating left hemisphere, and what it means for the unity of self.</p>
-    </div>
-
-    <div class="card">
-      <h3><a href="boundaries.html">Boundaries of Consciousness</a></h3>
-      <p>Octopus intelligence, corvid self-awareness, near-death experiences, and terminal lucidity. Where consciousness begins, ends, and surprises us.</p>
-    </div>
-
-    <div class="card">
-      <h3><a href="illusions.html">Illusions of Reality</a></h3>
-      <p>The invisible gorilla. The frequency illusion. The speed of light as a rendering limit. Simulation theory and the possibility that reality only computes what is observed.</p>
-    </div>
-
-    <div class="card">
-      <h3><a href="experiment.html">The Button Experiment</a></h3>
-      <p>An interactive test: press Left or Right 20 times and watch a simple algorithm predict your "free" choices. Experience the Soon et al. finding firsthand.</p>
-    </div>
-
-    <div class="card">
-      <h3><a href="machine-minds.html">Machine Minds</a></h3>
-      <p>Can silicon be conscious? The Chinese Room, the hard problem of AI sentience, and why we may never be able to tell if a machine is truly aware.</p>
-    </div>
-
-    <div class="card">
-      <h3><a href="sources.html">Sources &amp; Further Reading</a></h3>
-      <p>Primary research papers, books, and the full bibliography behind this project.</p>
-    </div>
+    <div class="section-divider"></div>
 
     <div class="stat-grid">
-      <div class="stat-box">
+      <div class="stat-box animate-on-scroll stagger-1">
         <span class="number">86B</span>
-        <span class="label">neurons in the human brain</span>
+        <span class="label">Neurons in the human brain</span>
       </div>
-      <div class="stat-box">
+      <div class="stat-box animate-on-scroll stagger-2">
         <span class="number">100T</span>
-        <span class="label">synaptic connections</span>
+        <span class="label">Synaptic connections</span>
       </div>
-      <div class="stat-box">
+      <div class="stat-box animate-on-scroll stagger-3">
         <span class="number">0</span>
-        <span class="label">complete theories of consciousness</span>
+        <span class="label">Complete theories of consciousness</span>
       </div>
     </div>
 
@@ -128,5 +167,7 @@
     </div>
     <p>Created by Philip S. Wright | <a href="https://github.com/pdubbbbbs/jim-twins-project">View on GitHub</a></p>
   </footer>
+
+  <script src="animations.js"></script>
 </body>
 </html>

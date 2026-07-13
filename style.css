@@ -1103,7 +1103,7 @@ footer a { color: var(--blue-bright); }
 }
 
 /* Tablet and smaller screens */
-@media (max-width: 768px) {
+@media (max-width: 992px) {
   .hero .author-name { font-size: 1.1rem; letter-spacing: 5px; }
   .hero .project-title { font-size: 2rem; letter-spacing: -1px; }
   .hero h1 { font-size: 2.2rem; letter-spacing: -1px; }
@@ -1112,21 +1112,35 @@ footer a { color: var(--blue-bright); }
   .stat-grid { grid-template-columns: 1fr; }
   .card-grid { grid-template-columns: 1fr; }
   
-  /* Improved navigation for tablets */
+  /* Hamburger menu for tablet & mobile */
+  .nav-toggle { display: flex; }
+  
   nav .nav-inner {
-    flex-wrap: wrap;
-    gap: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-out;
+    width: 100%;
+  }
+  
+  nav .nav-inner.active {
+    max-height: 80vh;
+    overflow-y: auto;
+    transition: max-height 0.3s ease-in;
   }
   
   nav a {
-    padding: 0.6rem 0.8rem;
-    font-size: 0.75rem;
+    padding: 0.75rem 1rem;
+    font-size: 0.8rem;
+    border-bottom: 1px solid rgba(59, 130, 246, 0.1);
   }
   
   nav .site-title {
     width: 100%;
+    border-bottom: none;
     padding: 0.75rem 1rem;
-    margin-bottom: 0.5rem;
   }
   
   .container { padding: 2rem 1rem 3rem; }
@@ -1174,36 +1188,6 @@ footer a { color: var(--blue-bright); }
   
   .card { padding: 1.25rem; }
   .stat-box .number { font-size: 2.2rem; }
-  
-  /* Hamburger menu for mobile */
-  .nav-toggle { display: flex; }
-  
-  nav .nav-inner {
-    display: flex;
-    flex-direction: column;
-    align-items: stretch;
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.3s ease-out;
-    width: 100%;
-  }
-  
-  nav .nav-inner.active {
-    max-height: 80vh;
-    overflow-y: auto;
-    transition: max-height 0.3s ease-in;
-  }
-  
-  nav a {
-    padding: 0.75rem 1rem;
-    font-size: 0.8rem;
-    border-bottom: 1px solid rgba(59, 130, 246, 0.1);
-  }
-  
-  nav .site-title {
-    width: 100%;
-    border-bottom: none;
-  }
   
   .container { padding: 1.5rem 0.75rem 2rem; }
   

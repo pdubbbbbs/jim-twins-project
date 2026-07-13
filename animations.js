@@ -35,6 +35,33 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
+  // Hamburger menu toggle for mobile
+  const navToggle = document.querySelector('.nav-toggle');
+  const navInner = document.querySelector('nav .nav-inner');
+  
+  if (navToggle) {
+    navToggle.addEventListener('click', () => {
+      navToggle.classList.toggle('active');
+      navInner.classList.toggle('active');
+    });
+    
+    // Close menu when a link is clicked
+    document.querySelectorAll('nav a:not(.nav-toggle)').forEach(link => {
+      link.addEventListener('click', () => {
+        navToggle.classList.remove('active');
+        navInner.classList.remove('active');
+      });
+    });
+    
+    // Close menu when clicking outside
+    document.addEventListener('click', (e) => {
+      if (!e.target.closest('nav')) {
+        navToggle.classList.remove('active');
+        navInner.classList.remove('active');
+      }
+    });
+  }
+
   // Smooth reveal for nav active state
   const currentPage = window.location.pathname.split('/').pop() || 'index.html';
   document.querySelectorAll('nav a').forEach(link => {

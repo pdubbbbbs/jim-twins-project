@@ -1103,7 +1103,7 @@ footer a { color: var(--blue-bright); }
 }
 
 /* Tablet and smaller screens */
-@media (max-width: 992px) {
+@media (max-width: 1200px) {
   .hero .author-name { font-size: 1.1rem; letter-spacing: 5px; }
   .hero .project-title { font-size: 2rem; letter-spacing: -1px; }
   .hero h1 { font-size: 2.2rem; letter-spacing: -1px; }
@@ -1113,7 +1113,7 @@ footer a { color: var(--blue-bright); }
   .card-grid { grid-template-columns: 1fr; }
   
   /* Hamburger menu for tablet & mobile */
-  .nav-toggle { display: flex; }
+  .nav-toggle { display: flex !important; }
   
   nav .nav-inner {
     display: flex;
